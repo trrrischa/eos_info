@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Account View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AccountViewController" customModule="eos_info" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="IVZ-ai-Eg1">
+                                <rect key="frame" x="188" y="429" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Yx-HP-Xj7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVF-9o-LAH">
+                                        <rect key="frame" x="16" y="16" width="316" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="rAh-zs-AQY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oid-TN-2P4">
+                                        <rect key="frame" x="348" y="16" width="50" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="JR2-OF-0uR"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="getInfoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6R-vh-1sL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="7SZ-TT-I4i"/>
+                                    <constraint firstItem="oid-TN-2P4" firstAttribute="leading" secondItem="QVF-9o-LAH" secondAttribute="trailing" constant="16" id="9HO-7U-5qm"/>
+                                    <constraint firstItem="QVF-9o-LAH" firstAttribute="leading" secondItem="5Yx-HP-Xj7" secondAttribute="leading" constant="16" id="AWV-gI-xIL"/>
+                                    <constraint firstAttribute="bottom" secondItem="oid-TN-2P4" secondAttribute="bottom" constant="16" id="UEz-xU-AUb"/>
+                                    <constraint firstItem="QVF-9o-LAH" firstAttribute="top" secondItem="5Yx-HP-Xj7" secondAttribute="top" constant="16" id="b6p-AD-Sdr"/>
+                                    <constraint firstItem="oid-TN-2P4" firstAttribute="top" secondItem="5Yx-HP-Xj7" secondAttribute="top" constant="16" id="qTL-G5-vKg"/>
+                                    <constraint firstAttribute="trailing" secondItem="oid-TN-2P4" secondAttribute="trailing" constant="16" id="rQK-wC-qSg"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ZUo-B7-JDu">
+                                <rect key="frame" x="0.0" y="118" width="414" height="744"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Yx-HP-Xj7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MTi-z5-zSt"/>
+                            <constraint firstItem="ZUo-B7-JDu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="VUg-lM-QzM"/>
+                            <constraint firstItem="5Yx-HP-Xj7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c4o-js-iyP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Yx-HP-Xj7" secondAttribute="trailing" id="d0p-9n-nYn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZUo-B7-JDu" secondAttribute="bottom" id="fwL-6g-7Z4"/>
+                            <constraint firstItem="ZUo-B7-JDu" firstAttribute="top" secondItem="5Yx-HP-Xj7" secondAttribute="bottom" constant="8" id="htE-yA-ojk"/>
+                            <constraint firstItem="ZUo-B7-JDu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qqx-nl-gTR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountInfoStackView" destination="ZUo-B7-JDu" id="uGp-mC-sjc"/>
+                        <outlet property="accountNameTextField" destination="QVF-9o-LAH" id="xcG-G1-pMg"/>
+                        <outlet property="activityIndicator" destination="IVZ-ai-Eg1" id="BEh-D2-bGR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
